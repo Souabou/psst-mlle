@@ -94,6 +94,15 @@ a {
 	overflow-y: scroll;
 	text-transform: none;
 }
+.info-charte::-webkit-scrollbar {
+	width:30px; 
+  }
+  .info-charte::-webkit-scrollbar * {
+	background:transparent; 
+  }
+  .info-charte::-webkit-scrollbar-thumb {
+	background:transparent;
+  }
 /* Fonts styles */
 .info-charte h2 {
 	font-size: 2.5rem;
@@ -206,7 +215,7 @@ ul {
 	align-items: center;
 	/* background: lightgray; */
 	/* border: 1px solid red; */
-	z-index: 100;
+	z-index: 2000;
 	/* opacity: 75%; */
 	top: calc(50% - 9vh);
 }
