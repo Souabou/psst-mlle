@@ -1,3 +1,23 @@
+/* Custom fonts */
+@font-face {
+    font-family: 'Neue Haas Grotesk Display';
+    src: url('../fonts/NeueHaasGroteskDisplay-SemLt.woff2') format('woff2'),
+        url('../fonts/NeueHaasGroteskDisplay-SemLt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Display';
+    src: url('../fonts/NeueHaasGroteskDisplay-SmLtIt.woff2') format('woff2'),
+        url('../fonts/NeueHaasGroteskDisplay-SmLtIt.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+
 *,
 *::before,
 *::after {
@@ -16,9 +36,9 @@ html {
 }
 
 body {
-	font-family: 'Helvetica Neue', sans-serif;
+	font-family: 'Neue Haas Grotesk Display','Helvetica Neue', sans-serif;
 	font-size: 1.6rem;
-	font-weight: 300;
+	/* font-weight: 300; */
 	text-transform: uppercase;
 	height: 100vh;
 	width: 100vw;
@@ -27,12 +47,84 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	overflow: hidden;
+}
+a {
+	text-decoration: none;
+	color: black;
 }
 
 .header {
 	position: fixed;
 	top: 0;
 	right: 0;
+}
+
+/* MODAL */
+.modal {
+	position: fixed;
+	background-color: #69e044;
+	opacity: 0;
+	height: 100vh;
+	width: 100vw;
+	padding: 2em 10em;
+	font-size: 2.5rem;
+	text-align:justify;
+	z-index: -100;
+	/* display: none; */
+}
+
+.modal-open{
+	opacity: 100;
+	z-index: 100;
+}
+
+.close-modal {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 2rem;
+	width: 2rem;
+	text-decoration: none;
+	display: none;
+}
+
+.info-charte {
+	height: 90%;
+	overflow-y: scroll;
+	text-transform: none;
+}
+/* Fonts styles */
+.info-charte h2 {
+	font-size: 2.5rem;
+	margin: 2em 0 0.em 0;
+
+}
+.info-charte {
+	font-size: 2rem;
+}
+p {
+	font-size: 2rem;
+	margin-bottom: 0.3em;
+}
+.warning {
+	font-weight: 900;
+	font-style: normal;
+	margin: 1em 0 ;
+	
+}
+.info-charte ul {
+	list-style:none;
+	margin-bottom: 1em;
+
+}
+.info-charte li {
+
+	margin-bottom: 0.3em;
+}
+.info-charte li:before {
+	content:"- ";
+	
 }
 
 .main {
@@ -57,6 +149,7 @@ body {
 ul {
 	list-style: none;
 }
+
 
 /* marquee { 
   overflow: hidden;
@@ -96,31 +189,7 @@ ul {
 .footer__contact,
 .footer__instagram {
 	padding: 0.5em 1em;
-}
-
-@media screen and (max-width: 750px) {
-	.footer {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		display: flex;
-	}
-
-	.footer__contact,
-	.footer__instagram {
-		width: 50vw;
-		text-align: center;
-		font-size: 1.8rem;
-		margin: 0;
-	}
-
-	.text-box {
-		padding: 0.8em 1.2em;
-	}
-
-	.main img {
-		height: 50vh;
-	}
+	
 }
 
 /* Marquee styles */
@@ -139,7 +208,7 @@ ul {
 	/* border: 1px solid red; */
 	z-index: 100;
 	/* opacity: 75%; */
-	top: calc(50% - 5vh);
+	top: calc(50% - 9vh);
 }
 
 li img {
@@ -162,8 +231,8 @@ li img {
 .marquee:before {
 	content: '';
 	display: block;
-	background: lightgray;
-	opacity: 30%;
+	/* background: lightgray; */
+	/* opacity: 30%; */
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -171,11 +240,63 @@ li img {
 	left: 0;
 }
 
+
 @keyframes scroll {
 	from {
 		transform: translateX(0);
 	}
 	to {
 		transform: translateX(calc(-100% - var(--gap)));
+	}
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 750px) {
+	body {
+		font-family: 'Neue Haas Grotesk Display','Helvetica Neue', sans-serif;
+		
+	}
+	main{
+		height: 50vh;
+	}
+	.marquee li {
+		margin-right: 4em;
+	}
+	
+	.footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		display: flex;
+	}
+
+	.footer__contact,
+	.footer__instagram {
+		width: 50vw;
+		text-align: center;
+		font-size: 1.8rem;
+		margin: 0 ;
+	}
+	.footer h2 {
+		font-weight: normal;
+	}
+	.info-charte h2, p, li {
+		font-size: 1.8rem;
+	}
+
+	.text-box {
+		padding: 0.8em 1.2em;
+	}
+	.footer .text-box {
+		padding: 0.5em 0;
+	}
+
+	.main img {
+		height: 50vh;
+	}
+	.modal {
+		padding: 1em;
+		text-align: left;
 	}
 }
